@@ -59,3 +59,9 @@ Therefore, our schema should expose as much information to consumers of our API 
 - Add [documentation](/docs/hotchocolate/defining-a-schema/documentation) to almost everything in our schema.
 
 - [Deprecate](/docs/hotchocolate/defining-a-schema/versioning) fields in anticipation of a breaking change.
+
+# Relay
+
+[Relay](https://relay.dev) proposes some schema design principles for GraphQL servers in order to more efficiently fetch, refetch and cache entities on the client. Since these principles make for a better schema, we encourage all users, not only those of Relay, to consider these principles.
+
+[Learn more about Relay-compatible schema design](/docs/hotchocolate/defining-a-schema/relay)
