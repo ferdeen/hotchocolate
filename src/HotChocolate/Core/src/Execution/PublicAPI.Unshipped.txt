@@ -7,6 +7,8 @@ HotChocolate.Execution.Configuration.RequestExecutorSetup.TypeModules.get -> Sys
 HotChocolate.Execution.Instrumentation.IDiagnosticEvents.DispatchBatch(HotChocolate.Execution.IRequestContext! context) -> HotChocolate.Execution.Instrumentation.IActivityScope!
 HotChocolate.Execution.Instrumentation.IDiagnosticEvents.StartProcessing(HotChocolate.Execution.IRequestContext! context) -> void
 HotChocolate.Execution.Instrumentation.IDiagnosticEvents.StopProcessing(HotChocolate.Execution.IRequestContext! context) -> void
+HotChocolate.Execution.IRequestContext.Clone() -> HotChocolate.Execution.IRequestContext!
+HotChocolate.Execution.IRequestContext.IsValidDocument.get -> bool
 HotChocolate.Execution.Options.ComplexityAnalyzerSettings
 HotChocolate.Execution.Options.ComplexityAnalyzerSettings.ApplyDefaults.get -> bool
 HotChocolate.Execution.Options.ComplexityAnalyzerSettings.ApplyDefaults.set -> void
