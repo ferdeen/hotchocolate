@@ -309,32 +309,32 @@ namespace HotChocolate.Types.Relay
         [SuppressMessage("Performance", "CA1822:Mark members as static")]
         public class Query
         {
-            public string IntId([ID] int id) => id.ToString();
-            public string IntIdList([ID] int[] id) =>
+            public string IntId([GlobalId] int id) => id.ToString();
+            public string IntIdList([GlobalId] int[] id) =>
                 string.Join(", ", id.Select(t => t.ToString()));
 
-            public string NullableIntId([ID] int? id) => id?.ToString() ?? "null";
-            public string NullableIntIdList([ID] int?[] id) =>
+            public string NullableIntId([GlobalId] int? id) => id?.ToString() ?? "null";
+            public string NullableIntIdList([GlobalId] int?[] id) =>
                 string.Join(", ", id.Select(t => t?.ToString() ?? "null"));
 
-            public string StringId([ID] string id) => id;
-            public string StringIdList([ID] string[] id) =>
+            public string StringId([GlobalId] string id) => id;
+            public string StringIdList([GlobalId] string[] id) =>
                 string.Join(", ", id.Select(t => t.ToString()));
 
-            public string NullableStringId([ID] string? id) => id ?? "null";
-            public string NullableStringIdList([ID] string?[] id) =>
+            public string NullableStringId([GlobalId] string? id) => id ?? "null";
+            public string NullableStringIdList([GlobalId] string?[] id) =>
                 string.Join(", ", id.Select(t => t?.ToString() ?? "null"));
 
-            public string GuidId([ID] Guid id) => id.ToString();
-            public string GuidIdList([ID] IReadOnlyList<Guid> id) =>
+            public string GuidId([GlobalId] Guid id) => id.ToString();
+            public string GuidIdList([GlobalId] IReadOnlyList<Guid> id) =>
                 string.Join(", ", id.Select(t => t.ToString()));
 
-            public string NullableGuidId([ID] Guid? id) => id?.ToString() ?? "null";
-            public string NullableGuidIdList([ID] IReadOnlyList<Guid?> id) =>
+            public string NullableGuidId([GlobalId] Guid? id) => id?.ToString() ?? "null";
+            public string NullableGuidIdList([GlobalId] IReadOnlyList<Guid?> id) =>
                 string.Join(", ", id.Select(t => t?.ToString() ?? "null"));
 
-            public string InterceptedId([InterceptedID] [ID] int id) => id.ToString();
-            public string InterceptedIds([InterceptedID] [ID] int[] id) =>
+            public string InterceptedId([InterceptedID] [GlobalId] int id) => id.ToString();
+            public string InterceptedIds([InterceptedID] [GlobalId] int[] id) =>
                 string.Join(", ", id.Select(t => t.ToString()));
 
             public IFooPayload Foo(FooInput input) =>
@@ -365,18 +365,18 @@ namespace HotChocolate.Types.Relay
                 InterceptedIds = interceptedIds;
             }
 
-            [ID("Some")] public string SomeId { get; }
+            [GlobalId("Some")] public string SomeId { get; }
 
-            [ID("Some")] public string? SomeNullableId { get; }
+            [GlobalId("Some")] public string? SomeNullableId { get; }
 
-            [ID("Some")] public IReadOnlyList<int> SomeIds { get; }
+            [GlobalId("Some")] public IReadOnlyList<int> SomeIds { get; }
 
-            [ID("Some")] public IReadOnlyList<int?>? SomeNullableIds { get; }
+            [GlobalId("Some")] public IReadOnlyList<int?>? SomeNullableIds { get; }
 
-            [ID, InterceptedID]
+            [GlobalId, InterceptedID]
             public int? InterceptedId { get; }
 
-            [ID, InterceptedID]
+            [GlobalId, InterceptedID]
             public IReadOnlyList<int>? InterceptedIds { get; }
         }
 
@@ -398,13 +398,13 @@ namespace HotChocolate.Types.Relay
                 InterceptedIds = interceptedIds;
             }
 
-            [ID("Bar")] public string SomeId { get; }
+            [GlobalId("Bar")] public string SomeId { get; }
 
-            [ID("Bar")] public IReadOnlyList<int> SomeIds { get; }
+            [GlobalId("Bar")] public IReadOnlyList<int> SomeIds { get; }
 
-            [ID("Bar")] public string? SomeNullableId { get; }
+            [GlobalId("Bar")] public string? SomeNullableId { get; }
 
-            [ID("Bar")] public IReadOnlyList<int?>? SomeNullableIds { get; }
+            [GlobalId("Bar")] public IReadOnlyList<int?>? SomeNullableIds { get; }
 
             public int? InterceptedId { get; }
 
@@ -421,13 +421,13 @@ namespace HotChocolate.Types.Relay
 
         public interface IFooPayload
         {
-            [ID] string SomeId { get; }
+            [GlobalId] string SomeId { get; }
 
-            [ID] public string? SomeNullableId { get; }
+            [GlobalId] public string? SomeNullableId { get; }
 
-            [ID] IReadOnlyList<int> SomeIds { get; }
+            [GlobalId] IReadOnlyList<int> SomeIds { get; }
 
-            [ID] IReadOnlyList<int?>? SomeNullableIds { get; }
+            [GlobalId] IReadOnlyList<int?>? SomeNullableIds { get; }
 
             int? InterceptedId { get; }
 
